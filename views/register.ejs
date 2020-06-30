@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#03a6f3">
+    <%- include('partials/htmlCss') %>
+</head>
+<body>
+    <%-include('partials/header')%>
+
+    <!-- breadcrumb-start -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="/">Home</a>
+            <span class="breadcrumb-item active">Register</span>
+        </div>
+    </div>
+    <!-- breadcrumb-end -->
+
+    <!-- login form-start -->
+    <section class="static about-sec">
+        <div class="container">
+            <h1>My Account / Register</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+            <div class="form">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="email" id="emailInp" placeholder="Enter Your Email" required>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="password" id="passwordInp" placeholder="Enter Your Password" required>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="password" id="repeatPasswordInp" placeholder="Repeat Your Password" required>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <button class="btn black" id="registerBtn">Register</button>
+                            <h5>Already Registered? <a href="/login">Login here</a></h5>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- login form-end -->
+
+    <%-include('partials/footer')%>
+
+    <!-- error-modal-start -->
+    <div class="modal" tabindex="-1" role="dialog" id="resultModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- error-modal-end -->
+
+    <%- include('partials/htmlJs') %>
+
+    <script>
+        // get data from login-form
+        document.querySelector('#registerBtn').addEventListener('click', e => {
+            e.preventDefault();
+            const email = document.querySelector('#emailInp').value.trim();
+            const password = document.querySelector('#passwordInp').value.trim();
+            const repeatPassword = document.querySelector('#repeatPasswordInp').value.trim();
+            // console.log(email);
+            // console.log(password);
+            // console.log(repeatPassword);
+            if (email && password && password == repeatPassword) { // inputs not empty || passwords the same
+                const sentObj = {
+                    email,
+                    password,
+                    repeatPassword  
+                }
+                fetch('/register', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(sentObj),
+                }).then(response => {    
+                    // console.log(response);
+                    if (response.status == 200) {
+                        response.json().then(data => { // read response body and parse as JSON
+                            // console.log(data);
+                            switch (data) {
+                                case 1:
+                                    showModal(false, "Registration successful", "You can go to the login page");
+                                    break;
+                                case 2:
+                                    showModal(true, "Missing entries", "Some inputs are empty or your passwords don't match!");
+                                    break;
+                                case 3:
+                                    showModal(true, "Email is already registered", "Email is already registered");
+                                    break;
+                                case 4:
+                                    showModal(true, "Server error", "Something unexpected happened");
+                                    break;
+                                default:
+                                    showModal(true, "Server error", "Something unexpected happened");
+                                    break;
+                            }
+                        }).catch(error => {
+                            console.log(error);
+                            showModal(true, "Error on getting data", error.message);
+                        })
+                    }
+                }).catch(error => {
+                    console.log(error);
+                    showModal(true, "Server error", error.message);
+                })
+            } else {
+                showModal(true, "Missing entries", "Some inputs are empty or your passwords don't match!");
+            }
+        })
+        // shows different error-modals
+        function showModal(error, title, content) {
+            const modal = document.querySelector('#resultModal');
+            const modalHeader = modal.querySelector('.modal-header');
+            const modalBody = modal.querySelector('.modal-body');
+            const modalTitle = modal.querySelector('.modal-title');
+            if (error) { // red header
+                modalHeader.classList.remove('bg-success');
+                modalHeader.classList.add('bg-danger');
+            } else { // green header
+                modalHeader.classList.remove('bg-danger');
+                modalHeader.classList.add('bg-success');
+            }
+            modalTitle.innerText = title;
+            modalBody.innerHTML = '<p>' + content + '</p>';
+            $('#resultModal').modal('show');
+        }
+    </script>
+</body>
+</html>

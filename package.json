@@ -1,0 +1,25 @@
+{
+  "name": "11-bookstore",
+  "version": "1.0.0",
+  "description": "bookstore",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon --ignore '*.json' app.js"
+  },
+  "keywords": [
+    "bookstore",
+    "nodejs",
+    "ejs",
+    "bootstrap"
+  ],
+  "author": "Felix Wurst",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-session": "^1.17.1"
+  }
+}

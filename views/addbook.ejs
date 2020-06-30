@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#03a6f3">
+    <%-include('partials/htmlCss')%>
+</head>
+<body>
+    <%-include('partials/header')%>
+
+    <!-- breadcrumb-start -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="/">Home</a>
+            <span class="breadcrumb-item active">Add book</span>
+        </div>
+    </div>
+    <!-- breadcrumb-end -->
+
+    <!-- book-form-start -->
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Admin / Add book</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+            <div class="form">
+                <form>
+                    <div class="form-group">
+                        <label for="bookTitleInp">Title</label>
+                        <input type="text" class="form-control" id="bookTitleInp" placeholder="Enter title of book">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUploadInp">Image Upload</label>
+                        <input type="file" class="form-control-file" id="imageUploadInp" accept="image/x-png,image/gif,image/jpeg" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookUploadInp">Book Upload</label>
+                        <input type="file" class="form-control-file" id="bookUploadInp" accept="application/pdf">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookDetailsInp">Details</label>
+                        <!-- <textarea class="form-control" id="bookDetailsInp">Please add here some details!</textarea> -->
+                        <textarea class="form-control" id="bookDetailsInp">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit?
+                            Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum.
+                            Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores.
+                            Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi!
+                            Facere, perspiciatis quibusdam.
+                        </textarea>
+                    </div>
+                    <button class="btn btn-primary" id="saveBtn">Save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- book-form-end -->
+
+    <%-include('partials/footer')%>
+
+    <!-- error-modal-start -->
+    <div class="modal" tabindex="-1" role="dialog" id="resultModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- error-modal-end -->
+    
+    <%-include('partials/htmlJs')%>
+    
+    <!-- TinyMCE -->
+    <script src='/tinymce/tinymce.min.js'></script>
+    <script>
+        // tinymce-plugin -> html-editor
+        tinymce.init({
+            selector: '#bookDetailsInp',
+            /* theme of the editor */
+            theme: "silver",
+            skin: "oxide",
+            /* width and height of the editor */
+            width: "100%",
+            height: 300,
+            /* display statusbar */
+            statubar: true,
+            /* plugin */
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+            ],
+            /* toolbar */
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+            /* style */
+            style_formats: [
+                {title: "Headers", items: [
+                    {title: "Header 1", format: "h1"},
+                    {title: "Header 2", format: "h2"},
+                    {title: "Header 3", format: "h3"},
+                    {title: "Header 4", format: "h4"},
+                    {title: "Header 5", format: "h5"},
+                    {title: "Header 6", format: "h6"}
+                ]},
+                {title: "Inline", items: [
+                    {title: "Bold", icon: "bold", format: "bold"},
+                    {title: "Italic", icon: "italic", format: "italic"},
+                    {title: "Underline", icon: "underline", format: "underline"},
+                    {title: "Strikethrough", icon: "strikethrough", format: "strikethrough"},
+                    {title: "Superscript", icon: "superscript", format: "superscript"},
+                    {title: "Subscript", icon: "subscript", format: "subscript"},
+                    {title: "Code", icon: "code", format: "code"}
+                ]},
+                {title: "Blocks", items: [
+                    {title: "Paragraph", format: "p"},
+                    {title: "Blockquote", format: "blockquote"},
+                    {title: "Div", format: "div"},
+                    {title: "Pre", format: "pre"}
+                ]},
+                {title: "Alignment", items: [
+                    {title: "Left", icon: "alignleft", format: "alignleft"},
+                    {title: "Center", icon: "aligncenter", format: "aligncenter"},
+                    {title: "Right", icon: "alignright", format: "alignright"},
+                    {title: "Justify", icon: "alignjustify", format: "alignjustify"}
+                ]}
+            ]
+        });
+        
+        // get content from inputs & fetch formdata
+        document.querySelector('#saveBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // get input-values, images & pdf
+            const bookTitle = document.querySelector('#bookTitleInp').value;
+            const bookImages = document.querySelector('#imageUploadInp').files;
+            const bookPDF = document.querySelector('#bookUploadInp').files[0];
+            const bookDetails = tinymce.get("bookDetailsInp").getContent();
+            
+            // send input-values, images & pdf as formdata
+            const fd = new FormData();
+            fd.append('bookTitle', bookTitle);
+            for (let i = 0; i < bookImages.length; i++) {
+                fd.append('bookImage' + i, bookImages[i]);                    
+            }
+            fd.append('bookPDF', bookPDF);
+            fd.append('bookDetails', bookDetails);
+
+            // fetch-request
+            fetch("/admin/addbook", {
+                method: 'POST',
+                body: fd
+            }).then(response => {
+                if (response.status == 200) {
+                    response.json().then(data => {
+                        switch (data) {
+                            case 1:
+                                showModal(false, "Success", "The book is saved");
+                                // clear inputs after book is saved successfully
+                                document.querySelector('#bookTitleInp').value = '';
+                                document.querySelector('#imageUploadInp').value = '';
+                                document.querySelector('#bookUploadInp').value = '';
+                                tinymce.get("bookDetailsInp").setContent('');
+                                break;
+                            case 2:
+                                showModal(true, "Error", "Not all inputs are filled");
+                                break;
+                            case 3:
+                                showModal(true, "Error", "Book-title already exists");
+                                break;
+                            default:
+                                break;
+                        }
+                    }).catch(error => {
+                        showModal(true, "Error", "Unknown response format"); 
+                    })
+                } else {
+                    showModal(true, "Error", "Can not send the data"); 
+                }
+            }).catch(error => {
+                showModal(true, "Error", "Can not send the data"); 
+            })
+
+            // postForm("/admin/addbook", fd).then(response => {
+            //     if (response.status == 200) {
+            //         response.json().then(jsonData => {
+            //             console.log(jsonData);
+            //         })                   
+            //     }
+            // })              
+        });
+
+        // function postForm(url = '', data = {}) {
+        //     return fetch(url, {
+        //         method: 'POST',
+        //         body: data
+        //     }).then(response => response)
+        // }
+
+    </script>    
+</body>
+</html>
