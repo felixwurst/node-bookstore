@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#03a6f3">
+    <%-include('partials/htmlCss')%>
+</head>
+<body>
+    <%-include('partials/header', {active: 'admin'})%>
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="/">Home</a>
+            <span class="breadcrumb-item active">Login</span>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
+
+    <!-- login-form -->
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Welcome <%=userEmail%></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est placeat ducimus vel autem culpa veritatis. Rem, culpa voluptas dolore quam, eos saepe, harum repudiandae tempore doloribus iusto sapiente maiores nemo.Illo magnam asperiores debitis quas laborum repudiandae cumque suscipit.</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/admin/addbook">add book</a>
+                    <br>
+                    <a href="/admin/mybooks">my books</a>
+                    <br>
+                    <a href="/admin/logout">log out</a>                 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /login-form -->
+
+    <%-include('partials/footer')%>
+    <%-include('partials/htmlJs')%>
+</body>
+</html>

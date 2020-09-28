@@ -44,3 +44,13 @@ function showModal(error, title, content) {
   $('#resultModal').modal('show');
 }
 
+// for save-btn
+function waitBtn(btn, wait, text) {
+  btn.innerText = text;
+  if (wait) {
+    btn.disabled = true;
+  } else {
+    btn.disabled = false;
+  }
+}
+

@@ -20,28 +20,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="navbar-item active">
+                        <li class="navbar-item <%=active=='home'?'active':''%>">
                             <a href="/" class="nav-link">Home</a>
                         </li>
-                        <li class="navbar-item">
+                        <li class="navbar-item <%=active=='shop'?'active':''%>">
                             <a href="/shop" class="nav-link">Shop</a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="/about.html" class="nav-link">About</a>
+                        <li class="navbar-item <%=active=='about'?'active':''%>">
+                            <a href="/about" class="nav-link">About</a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="/faq.html" class="nav-link">FAQ</a>
+                        <li class="navbar-item <%=active=='faq'?'active':''%>">
+                            <a href="/faq" class="nav-link">FAQ</a>
                         </li>
-                        <li class="navbar-item">
+                        <li class="navbar-item <%=active=='login'?'active':''%>">
                             <a href="/login" class="nav-link">Login</a>
                         </li>
-                        <li class="navbar-item">
+                        <li class="navbar-item <%=active=='register'?'active':''%>">
                             <a href="/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="navbar-item <%=active=='admin'?'active':''%>">
+                            <a href="/admin" class="nav-link">Admin</a>
                         </li>
                     </ul>
                     <div class="cart my-2 my-lg-0">
                         <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                        <span class="quntity">3</span>
+                        <!-- <span class="quntity">3</span> -->
                     </div>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">

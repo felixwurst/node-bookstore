@@ -1,20 +1,16 @@
 {
     "users": [{
         "id": 1,
-        "email": "felix.wurst@gmail.com",
-        "password": "1234"
+        "email": "felix.wurst@lalala.com",
+        "password": "sha1$7821c460$1$403c75fe191a99803ab1a70590d414501924dd98"
     }, {
         "id": 2,
-        "email": "felix.wurst@lalala.com",
-        "password": "1111"
+        "email": "felix.wurst@blabla.com",
+        "password": "sha1$7821c460$1$403c75fe191a99803ab1a70590d414501924dd98"
     }, {
         "id": 3,
-        "email": "felix.wurst@blabla.com",
-        "password": "123"
-    }, {
-        "id": 4,
-        "email": "felix.wurst@dsfasdfasd.com",
-        "password": "asd"
+        "email": "felix.wurst@gmail.com",
+        "password": "sha1$7821c460$1$403c75fe191a99803ab1a70590d414501924dd98"
     }],
-    "newId": 5
+    "newId": 4
 }

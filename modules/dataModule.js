@@ -1,42 +1,53 @@
 // ---------------------------------------- setup ----------------------------------------
 const fs = require('fs');
+const passwordHash = require('password-hash');
 
 // ---------------------------------------- functions ----------------------------------------
 function registerUser (email, password) {
-    // console.log(email);
-    // console.log(password);
     return new Promise((resolve, reject) => {
         const data = JSON.parse(fs.readFileSync('./users.json'));
         const existUser = data.users.find(user => user.email == email);
         if (existUser) {
-            reject('exist'); // error: user already exists -> app.js
+            reject('exist'); // user already exists
         } else {
             data.users.push({ // create new user object
                 id: data.newId,
                 email: email,
-                password: password
+                password: passwordHash.generate(password)
             })
             data.newId++; // increase newId
             fs.writeFileSync('./users.json', JSON.stringify(data));
-            resolve(); // success: registration is successful -> app.js
+            resolve(); // registration is successful
         }
     })
 }
 
-function addBook(bookTitle, bookDetails, bookPDF, bookImages) {
-    // console.log(bookTitle);
-    // console.log(bookDetails);
-    // console.log(bookPDF);
-    // console.log(bookImages);
+function checkUser(email, password) {
+    return new Promise((resolve, reject) => {
+        const usersObj = JSON.parse(fs.readFileSync('./users.json'));
+        // check email
+        const foundUser = usersObj.users.find(user => user.email == email)  
+        if (foundUser) { // check password
+            if (passwordHash.verify(password, foundUser.password)) {
+                resolve(foundUser); // password is correct
+            } else {
+                reject(3); // password is not correct
+            }
+        } else {
+            reject(3); // user is not found
+        }
+    });
+}
+
+function addBook(bookTitle, bookDescription, bookPdf, bookImages) {
     return new Promise((resolve, reject) => {
         // check if bookTitle exists for this user
         const booksObj = JSON.parse(fs.readFileSync('./books.json'));
         const bookTitleExist = booksObj.books.find(book => {
             return book.title == bookTitle && book.userId == 1;
         });
-
         if (bookTitleExist) {
-            reject(3); // error: booktitle already exists-> adminRouter.js
+            reject(3); // booktitle already exists
         } else {
             // rename & save book-images
             const imgsArr = []
@@ -48,24 +59,22 @@ function addBook(bookTitle, bookDetails, bookPDF, bookImages) {
                 bookImage.mv('./public/uploadedFiles/' + newImgName);
                 imgsArr.push('/uploadedFiles/' + newImgName); // array with filepaths
             });
-
             // rename & save pdf-file
             let newPdfName = bookTitle.trim().replace(/ /g, '_') + '_' + 1 + '.pdf'; 
-            bookPDF.mv('./public/uploadedFiles/' + newPdfName);
+            bookPdf.mv('./public/uploadedFiles/' + newPdfName);
             let newPdfUrl = '/uploadedFiles/' + newPdfName;
-
-            // save new book-object in json-file
+            // save new book-object into json-file
             booksObj.books.push({
                 id: booksObj.newId,
                 title: bookTitle.trim(),
-                description: bookDetails,
-                imgs: imgsArr,
-                pdfUrl: newPdfUrl,
+                description: bookDescription,
+                images: imgsArr,
+                pdf: newPdfUrl,
                 userId: 1
             });
             booksObj.newId++; // increase newId
             fs.writeFileSync('./books.json', JSON.stringify(booksObj))
-            resolve(); // success: book is saved -> adminRouter.js
+            resolve(); // book is saved successfully
         }
     })
 }
@@ -73,13 +82,28 @@ function addBook(bookTitle, bookDetails, bookPDF, bookImages) {
 function getBooks() {
     return new Promise((resolve, reject) => {
         const booksObj = JSON.parse(fs.readFileSync('./books.json'));
-        resolve(booksObj.books); // only send books-array from json-file
+        resolve(booksObj.books); // sends only the books-array from json-file
+    });
+}
+
+function getBook(id) {
+    return new Promise((resolve, reject) => {
+        const booksObj = JSON.parse(fs.readFileSync('./books.json'));
+        // find book by ID
+        const foundBook = booksObj.books.find(book => book.id == id);
+        if (foundBook) {
+            resolve(foundBook); // sends only the found book from json-file
+        } else {
+            reject(new Error('Can not find a book with this id: ' + id))
+        }
     });
 }
 
 // ---------------------------------------- export ----------------------------------------
 module.exports = {
     registerUser,
+    checkUser,
     addBook,
-    getBooks
+    getBooks,
+    getBook
 }

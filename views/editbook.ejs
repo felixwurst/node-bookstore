@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#03a6f3">
+    <%-include('partials/htmlCss')%>
+</head>
+<body>
+    <%-include('partials/header', {active: 'admin'})%>
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="/">Home</a>
+            <span class="breadcrumb-item active">Edit book</span>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
+
+    <!-- book-form -->
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Admin / Edit Book</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div class="form">
+                <form>
+                    <div class="form-group">
+                        <label for="bookTitleInp">Title</label>
+                        <input type="text" class="form-control" id="bookTitleInp" value="<%=book.title%>" placeholder="Enter title of book">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUploadInp">Image Upload</label>
+                        <div class="row">
+                            <% for (let i = 0; i < book.images.length; i++) { %> 
+                                <div class="col-md-3">
+                                    <a href="#" class="deleteImage">X</a>
+                                    <img class="bookImage" src="<%=book.images[i]%>" alt="">
+                                </div>
+                            <% } %>
+                        </div>
+                        <input type="file" class="form-control-file" id="imageUploadInp" accept="image/x-png,image/gif,image/jpeg" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookUploadInp">Book Upload</label>
+                        <span class="badge badge-default">
+                            <%=book.pdf.substr(book.pdf.lastIndexOf('/')+1)%>
+                            <a href="#" id="deletePdf">X</a>
+                        </span>
+                        <input type="file" class="form-control-file" id="bookUploadInp" accept="application/pdf" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookDescriptionInp">Details</label>
+                        <textarea class="form-control" id="bookDescriptionInp">
+                            <%=book.description%> 
+                        </textarea>
+                    </div>
+                    <button class="btn btn-primary" id="saveBtn">Save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- /book-form -->
+
+    <%-include('partials/footer')%>
+
+    <!-- error-modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="resultModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /error-modal -->
+    
+    <%-include('partials/htmlJs')%>
+    <!-- TinyMCE -->
+    <script src='/tinymce/tinymce.min.js'></script>
+    <script>
+        // tinymce-plugin -> html-editor
+        tinymce.init({
+            selector: '#bookDescriptionInp',
+            /* theme of the editor */
+            theme: "silver",
+            skin: "oxide",
+            /* width and height of the editor */
+            width: "100%",
+            height: 300,
+            /* display statusbar */
+            statubar: true,
+            /* plugin */
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+            ],
+            /* toolbar */
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+            /* style */
+            style_formats: [
+                {title: "Headers", items: [
+                    {title: "Header 1", format: "h1"},
+                    {title: "Header 2", format: "h2"},
+                    {title: "Header 3", format: "h3"},
+                    {title: "Header 4", format: "h4"},
+                    {title: "Header 5", format: "h5"},
+                    {title: "Header 6", format: "h6"}
+                ]},
+                {title: "Inline", items: [
+                    {title: "Bold", icon: "bold", format: "bold"},
+                    {title: "Italic", icon: "italic", format: "italic"},
+                    {title: "Underline", icon: "underline", format: "underline"},
+                    {title: "Strikethrough", icon: "strikethrough", format: "strikethrough"},
+                    {title: "Superscript", icon: "superscript", format: "superscript"},
+                    {title: "Subscript", icon: "subscript", format: "subscript"},
+                    {title: "Code", icon: "code", format: "code"}
+                ]},
+                {title: "Blocks", items: [
+                    {title: "Paragraph", format: "p"},
+                    {title: "Blockquote", format: "blockquote"},
+                    {title: "Div", format: "div"},
+                    {title: "Pre", format: "pre"}
+                ]},
+                {title: "Alignment", items: [
+                    {title: "Left", icon: "alignleft", format: "alignleft"},
+                    {title: "Center", icon: "aligncenter", format: "aligncenter"},
+                    {title: "Right", icon: "alignright", format: "alignright"},
+                    {title: "Justify", icon: "alignjustify", format: "alignjustify"}
+                ]}
+            ]
+        });
+        
+        // deletes image-div from dom
+        document.querySelectorAll('.deleteImage').forEach(element => {
+            element.addEventListener('click', e => {
+                e.preventDefault();
+                e.target.parentElement.remove();
+            })
+        })
+        // deletes pdf-span from dom
+        document.querySelector('#deletePdf').addEventListener('click', e => {
+            e.preventDefault();
+            e.target.parentElement.remove();
+            document.querySelector('#bookUploadInp').disabled = false;
+        })
+        // get content from inputs & fetch formdata
+        document.querySelector('#saveBtn').addEventListener('click', e => {
+            e.preventDefault();
+            // check title
+            const bookTitle = document.querySelector('#bookTitleInp').value.trim();
+            if (!bookTitle) {
+                showModal(true, "Error", "Please add a title");
+                return;
+            }
+            // check images
+            const oldBookImages = document.querySelectorAll('.bookImage'); // [img.bookImage, img.bookImage, img.bookImage]
+            const newBookImages = document.querySelector('#imageUploadInp').files;
+            if (oldBookImages.length == 0 && newBookImages.length == 0) {
+                showModal(true, "Error", "Please add at least one image");
+                return;
+            }
+            // check pdf
+            const oldBookPdf = document.querySelector('#deletePdf'); // <a href="#" id="deletePdf">X</a>
+            const newBookPdf = document.querySelector('#bookUploadInp').files;
+            if (!oldBookPdf && newBookPdf.length == 0) {
+                showModal(true, "Error", "Please add a PDF");
+                return;
+            }
+
+            // create formdata
+            const fd = new FormData();
+            // append id
+            fd.append('bookID', '<%=book.id%>');
+            // append new title
+            fd.append('bookTitle', bookTitle);
+            // append URLs from old images
+            const oldBookImagesArr = [];
+            oldBookImages.forEach(img => {
+                oldBookImagesArr.push(img.src); // http://localhost:3000/uploadedFiles/test_5efdd6f8d8f191349b876f6c_0.jpg
+            });
+            fd.append('oldBookImagesUrls', JSON.stringify(oldBookImagesArr));
+            // append new images
+            for (let i = 0; i < newBookImages.length; i++) {
+                fd.append('bookImage' + i, newBookImages[i]);
+            }
+            // append new pdf
+            if (newBookPdf.length) { // 0 -> false / 1,2,... -> true
+                fd.append('bookPdf', newBookPdf[0]);
+            }
+            // append description
+            const bookDescription = tinymce.get("bookDescriptionInp").getContent();
+            fd.append('bookDescription', bookDescription);
+
+            // fetch-request
+            waitBtn(e.target, true, "Saving...");
+            fetch("/admin/updatedbook", {
+                method: 'POST',
+                body: fd
+            }).then(response => {
+                waitBtn(e.target, false, "Save");
+                if (response.status === 200) {
+                    response.json().then(data => {
+                        if (data === 1) {
+                            showModal(false, "Success", "The book is updated");
+                        } else {
+                            showModal(true, "Error", "Can not send the data");
+                        }
+                    }).catch(error => {
+                        showModal(true, "Error", "Unknown response format"); 
+                    })
+                } else {
+                    showModal(true, "Error", "Can not send the data"); 
+                }
+            }).catch(error => {
+                waitBtn(e.target, false, "Save");
+                showModal(true, "Error", "Can not send the data");
+            })
+        })
+    </script>    
+</body>
+</html>

@@ -3,43 +3,43 @@
         "id": 1,
         "title": "Ä",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Ä_1_0.jpg", "/uploadedFiles/Ä_1_1.jpg", "/uploadedFiles/Ä_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Ä_1.pdf",
+        "images": ["/uploadedFiles/Ä_1_0.jpg", "/uploadedFiles/Ä_1_1.jpg", "/uploadedFiles/Ä_1_2.jpg"],
+        "pdf": "/uploadedFiles/Ä_1.pdf",
         "userId": 1
     }, {
         "id": 2,
         "title": "Der Mönch der seinen Ferrari verkaufte",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_0.jpg", "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_1.jpg", "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1.pdf",
+        "images": ["/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_0.jpg", "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_1.jpg", "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1_2.jpg"],
+        "pdf": "/uploadedFiles/Der_Mönch_der_seinen_Ferrari_verkaufte_1.pdf",
         "userId": 1
     }, {
         "id": 3,
         "title": "Künstliche Intelligenz",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Künstliche_Intelligenz_1_0.jpg", "/uploadedFiles/Künstliche_Intelligenz_1_1.jpg", "/uploadedFiles/Künstliche_Intelligenz_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Künstliche_Intelligenz_1.pdf",
+        "images": ["/uploadedFiles/Künstliche_Intelligenz_1_0.jpg", "/uploadedFiles/Künstliche_Intelligenz_1_1.jpg", "/uploadedFiles/Künstliche_Intelligenz_1_2.jpg"],
+        "pdf": "/uploadedFiles/Künstliche_Intelligenz_1.pdf",
         "userId": 1
     }, {
         "id": 4,
         "title": "Masters of visual music",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Masters_of_visual_music_1_0.jpg", "/uploadedFiles/Masters_of_visual_music_1_1.jpg", "/uploadedFiles/Masters_of_visual_music_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Masters_of_visual_music_1.pdf",
+        "images": ["/uploadedFiles/Masters_of_visual_music_1_0.jpg", "/uploadedFiles/Masters_of_visual_music_1_1.jpg", "/uploadedFiles/Masters_of_visual_music_1_2.jpg"],
+        "pdf": "/uploadedFiles/Masters_of_visual_music_1.pdf",
         "userId": 1
     }, {
         "id": 5,
         "title": "Remix",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Remix_1_0.jpg", "/uploadedFiles/Remix_1_1.jpg", "/uploadedFiles/Remix_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Remix_1.pdf",
+        "images": ["/uploadedFiles/Remix_1_0.jpg", "/uploadedFiles/Remix_1_1.jpg", "/uploadedFiles/Remix_1_2.jpg"],
+        "pdf": "/uploadedFiles/Remix_1.pdf",
         "userId": 1
     }, {
         "id": 6,
         "title": "Harry Potter and the Sorcerers Stone",
         "description": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus odit soluta hic cumque ex voluptatum culpa non unde corporis, aliquid animi officiis atque sapiente eaque doloremque nobis modi omnis sit? Obcaecati neque eius sapiente culpa, tempore optio nulla aliquid tenetur dicta, minima asperiores mollitia soluta deserunt expedita ab ipsa. In dolor nulla unde quia itaque molestias distinctio labore delectus dolorum. Unde, libero quam! Esse deserunt vitae nihil quasi, saepe enim, nisi deleniti numquam nulla minima officiis vel provident modi aliquam incidunt odio, vero reprehenderit voluptatibus mollitia dolore earum veritatis dolores. Aliquid, beatae ipsum eum soluta ut dolores ratione nemo asperiores vero mollitia explicabo eos, perferendis aut? Fugit fugiat distinctio saepe assumenda eveniet. Aspernatur, sed. Deleniti vitae similique perspiciatis eos excepturi! Facere, perspiciatis quibusdam.</p>",
-        "imgs": ["/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_0.jpg", "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_1.jpg", "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_2.jpg"],
-        "pdfUrl": "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1.pdf",
+        "images": ["/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_0.jpg", "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_1.jpg", "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1_2.jpg"],
+        "pdf": "/uploadedFiles/Harry_Potter_and_the_Sorcerers_Stone_1.pdf",
         "userId": 1
     }],
     "newId": 7
