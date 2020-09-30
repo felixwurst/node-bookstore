@@ -1,10 +1,17 @@
-# Bookstore
-## Description
-A store where users need to sign up to be allowed to download or upload pdf books.
+# Node.js-Setup for a Bookstore
 
-## Specifications
-Admin can edit, delete and add books.
-Unregistered users can only brows the website which shows the book details but they can't download or upload books.
+### Description:
 
-## Tools
-node.js, express
+For a front-end template, a corresponding back-end part is developed. It is an online bookshop where registered users can download or upload pdf-books. Unregistered users can only view the book details of the respective books, but can not download or upload books. The administrator can also add, edit and delete books.<br>
+Various modules have been developed for storing the data in a database. So the data can now be stored using MongoDB, Mongoose or MySQL.
+
+### Tools:
+
+-   HTML
+-   CSS
+-   JavaScript
+-   Node.js
+-   Express.js
+-   MongoDB
+-   Mongoose
+-   MySQL
