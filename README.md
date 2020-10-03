@@ -1,4 +1,4 @@
-# Node.js-Setup for a Bookstore
+# Node.js Setup for a Bookstore
 
 ### Description:
 
