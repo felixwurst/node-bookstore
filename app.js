@@ -124,6 +124,6 @@ app.post('/login', (req, res) => {
 app.use('/admin', adminRouter);
 
 // ---------------------------------------- localhost ----------------------------------------
-app.listen(4000, () => {
-    console.log('App listening on port 4000!');
+app.listen(3000, () => {
+    console.log('App listening on port 3000!');
 });
