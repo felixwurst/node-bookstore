@@ -15,3 +15,10 @@ Various modules have been developed for storing the data in a database. So the d
 -   MongoDB
 -   Mongoose
 -   MySQL
+
+### Usage:
+
+1. download the code
+2. run `npm install`
+3. run `npm run start`
+4. open your browser and go to `localhost:3000`
